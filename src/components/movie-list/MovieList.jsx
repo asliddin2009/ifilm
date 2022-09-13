@@ -48,7 +48,7 @@ const MovieList = (props) => {
   //     window.scrollTo(0, 0);
   //   };
   //   getDetail();
-  // }, [category, id]);
+  // }, [category, id]sdsdsd);
 
   return (
     <div className="movie-list">

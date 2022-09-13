@@ -37,12 +37,9 @@ const HeroSlide = () => {
         slidesPerView={1}
         grabCursor={true}
         loop={true}
-        navigation={true}
+        navigation={false}
         autoplay={{ delay: 10000 }}
         spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
         modules={[Autoplay, Pagination, Navigation]}
       >
         {movieItems.map((item, i) => (
@@ -73,6 +70,9 @@ const HeroSlideItem = (props) => {
   );
 
   const setModalActive = async () => {
+    const body = document.querySelector("body")
+
+    body.style.overflow = "hidden";
     const modal = document.querySelector(`#modal_${item.id}`);
 
     const videos = await tmdbApi.getVideos(category.movie, item.id);

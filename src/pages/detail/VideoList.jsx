@@ -20,7 +20,11 @@ const VideoList = (props) => {
       });
       setVideos(
         res.results.slice(0, 100).forEach((video) => {
-          if (video.name == "Official Trailer" || video.official == true) {
+          const videName = video.name.split(' ')
+          console.log(videName);
+          if (video.name == "Official Trailer" || video.official == true || video.name == "Official Teaser" ||
+          videName[0] == "Official"
+          ) {
             setTrailerKey(video.key);
             setTrailerName(video.name);
           } else if (
