@@ -13,6 +13,9 @@ const Home = () => {
       <div className="modals">
         <HeroSlide />
       </div>
+      {/* <!-- SAPE RTB DIV 640x480 --> */}
+<div id="SRTB_783791"></div>
+{/* <!-- SAPE RTB END --> */}
       <div className="container">
         <div className="section mb-3">
           <div className="section__header mb-2">
