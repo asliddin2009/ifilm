@@ -20,18 +20,22 @@ const VideoList = (props) => {
       });
       setVideos(
         res.results.slice(0, 100).forEach((video) => {
-          const videName = video.name.split(' ')
+          const videName = video.name.split(" ");
           console.log(videName);
-          if (video.name == "Official Trailer" || video.official == true || video.name == "Official Teaser" ||
-          videName[0] == "Official"
+          if (
+            video.name == "Official Trailer" ||
+            video.official == true ||
+            video.name == "Official Teaser" ||
+            videName[0],videName[1],videName[2]  == "Official" ||
+            videName[0],videName[1],videName[2]  == "Treiler" 
           ) {
             setTrailerKey(video.key);
             setTrailerName(video.name);
-          } else if (
-            video.name == false ||
-            video.official == false
-          ) {
+          } else if (video.name == false || video.official == false) {
             setNoTrailer(false);
+          }else {
+            setTrailerKey(video.key);
+            setTrailerName(video.name);
           }
         })
       );
@@ -41,13 +45,7 @@ const VideoList = (props) => {
 
   console.log(trailerKey + " " + trailerName);
   return (
-    <>
-      {noTrailer ? (
-        ""
-      ) : (
-        <Video trailerKey={trailerKey} name={trailerName} />
-      )}
-    </>
+    <>{noTrailer ? "" : <Video trailerKey={trailerKey} name={trailerName} />}</>
   );
 };
 
@@ -60,7 +58,9 @@ const Video = ({ trailerKey, name }) => {
   }, []);
 
   return (
-    <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+    <div
+      style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
+    >
       <div className="video__title">
         <h2>{name}</h2>
       </div>

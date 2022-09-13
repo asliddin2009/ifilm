@@ -60,7 +60,7 @@ const Header = () => {
         </div>
         <ul className="header__nav">
           {headerNav.map((e, i) => (
-            <Link to={e.path}>
+            <Link key={i} to={e.path}>
               <li key={i} className={`${i === active ? "active" : ""}`}>
                 {e.display}
               </li>
@@ -68,11 +68,11 @@ const Header = () => {
           ))}
         </ul>
         <div className="search">
-          <Link >
+          <a>
             <li className="search-icon">
               <FiSearch />
             </li>
-          </Link>
+          </a>
           {/* <MovieSearch /> */}
         </div>
       </div>
