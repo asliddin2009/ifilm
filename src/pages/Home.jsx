@@ -23,7 +23,9 @@ const Home = () => {
           </div>
           <MovieList category={category.movie} type={movieType.popular} />
         </div>
-
+        {/* <!-- SAPE RTB DIV 600x340 --> */}
+        <div id="SRTB_783789"></div>
+        {/* <!-- SAPE RTB END --> */}
         <div className="section mb-3">
           <div className="section__header mb-2">
             <h2>Top Rated Movies</h2>
