@@ -20,23 +20,23 @@ const VideoList = (props) => {
       });
       setVideos(
         res.results.slice(0, 100).forEach((video) => {
-          const videName = video.name.split(" ");
-          console.log(videName);
+          const videoName = video.name.split(" ");
+          console.log(videoName);
           if (
-            video.name == "Official Trailer" ||
-            video.official == true ||
-            video.name == "Official Teaser" ||
-            videName[0],videName[1],videName[2]  == "Official" ||
-            videName[0],videName[1],videName[2]  == "Treiler" 
+            (video.name == "Official Trailer" || video.official == true,
+            videoName[1],
+            videoName[2] == "Official" || videoName[0],
+            videoName[1],
+            videoName[2] == "Trailer")
           ) {
             setTrailerKey(video.key);
             setTrailerName(video.name);
-          } else if (video.name == false || video.official == false) {
-            setNoTrailer(false);
-          }else {
+          } else if (video.name == "Official Teaser" || videoName[2] === "Teaser") {
             setTrailerKey(video.key);
             setTrailerName(video.name);
           }
+          return setTrailerKey(video.key);
+          setTrailerName(video.name);
         })
       );
     };
@@ -66,6 +66,7 @@ const Video = ({ trailerKey, name }) => {
       </div>
       <iframe
         src={`https://www.youtube.com/embed/${trailerKey}`}
+        // src={`https://www.youtube.com/embed/jumy9LR2vyI`}
         ref={iframeRef}
         width="1000px"
         title="video"
