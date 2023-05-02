@@ -17,16 +17,6 @@ const MovieCard = props => {
 
     const bg = apiConfig.w500Image(item.poster_path || item.backdrop_path);
 
-    const film = () => {
-        if(item.first_air_date) {
-            return item.first_air_date.split('-').splice(0, 1)
-        } else if(item.release_date){
-            return item.release_date.split('-').splice(0, 1)
-        } else {
-            return ""
-        }
-    }
-    // console.log(item);;
 
     return (
         <Link to={link}>
@@ -35,7 +25,7 @@ const MovieCard = props => {
                     <FaPlay />
                 </Button>
             </div>
-            <h3 style={{fontSize: "15px"}}>{item.title || item.name} ({film()})</h3>
+            <h3 style={{fontSize: "15px"}}>{item.title}</h3>
         </Link>
     );
 }

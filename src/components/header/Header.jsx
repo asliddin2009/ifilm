@@ -29,26 +29,22 @@ const Header = () => {
 
   const active = headerNav.findIndex((e) => e.path === pathname);
 
-  useEffect(() => {
-    const shrinkHeader = () => {
-      if (
-        document.body.scrollTop > 100 ||
-        document.documentElement.scrollTop > 100
-      ) {
-        headerRef.current.classList.add("shrink");
-      } else {
-        headerRef.current.classList.remove("shrink");
-      }
-    };
-    window.addEventListener("scroll", shrinkHeader);
-    return () => {
-      window.removeEventListener("scroll", shrinkHeader);
-    };
-  }, []);
-
-  // const search = () => {
-  //   return <MovieSearch/>
-  // }
+  // useEffect(() => {
+  //   const shrinkHeader = () => {
+  //     if (
+  //       document.body.scrollTop > 100 ||
+  //       document.documentElement.scrollTop > 100
+  //     ) {
+  //       headerRef.current.classList.add("shrink");
+  //     } else {
+  //       headerRef.current.classList.remove("shrink");
+  //     }
+  //   };
+  //   window.addEventListener("scroll", shrinkHeader);
+  //   return () => {
+  //     window.removeEventListener("scroll", shrinkHeader);
+  //   };
+  // }, []);
 
   return (
     <div ref={headerRef} className="header">
@@ -73,7 +69,6 @@ const Header = () => {
               <FiSearch />
             </li>
           </a>
-          {/* <MovieSearch /> */}
         </div>
       </div>
     </div>
