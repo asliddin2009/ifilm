@@ -3,7 +3,7 @@ import { FaPlay } from 'react-icons/fa';
 
 import './movie-card.scss';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Button from '../button/Button';
 
@@ -11,6 +11,10 @@ import { category } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
 const MovieCard = props => {
+    const location = useLocation()
+    if (location.pathname === '/') {
+        document.title = "Home"
+    }
     const item  = props.item;
 
     const link = '/' + category[props.category] + '/' + item.id;
