@@ -1,16 +1,12 @@
 import 'swiper/swiper.min.css'
-// import './assets/boxicons-2.0.7/css/boxicons.min.css'
 import './App.scss'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Header from './components/header/Header'
-
 import Catalog from './pages/Catalog'
 import Detail from './pages/detail/Detail'
 import Home from './pages/Home'
-
-// import Routes6 from './config/Routes'
 
 function App() {
   return (

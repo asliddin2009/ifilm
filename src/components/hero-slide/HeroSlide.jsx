@@ -12,7 +12,6 @@ import "./hero-slide.scss";
 import { useNavigate } from "react-router";
 
 const HeroSlide = () => {
-  SwiperCore.use([Autoplay]);
 
   const [movieItems, setMovieItems] = useState([]);
 
@@ -54,7 +53,7 @@ const HeroSlide = () => {
         ))}
       </Swiper>
       {movieItems.map((item, i) => (
-        <TrailerModal key={i} item={item} />
+        <TrailerModal key={i} id={item.id} />
       ))}
     </div>
   );
@@ -115,15 +114,14 @@ const HeroSlideItem = (props) => {
   );
 };
 
-const TrailerModal = (props) => {
-  const item = props.item;
+const TrailerModal = ({ id }) => {
 
   const iframeRef = useRef(null);
 
   const onClose = () => iframeRef.current.setAttribute("src", "");
 
   return (
-    <Modal active={false} id={`modal_${item.id}`}>
+    <Modal active={false} id={`modal_${id}`}>
       <ModalContent onClose={onClose}>
         <iframe
           ref={iframeRef}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import tmdbApi from "../../api/tmdbApi";
@@ -12,16 +12,16 @@ import MovieList from "../../components/movie-list/MovieList";
 
 const Detail = () => {
   const { category, id } = useParams();
-
   const [item, setItem] = useState(null);
 
   useEffect(() => {
     const getDetail = async () => {
       const response = await tmdbApi.detail(category, id, { params: {} });
+      // console.log(response);
       setItem(response);
-      window.scrollTo(0, 0);
     };
-    getDetail();
+    getDetail()
+    window.scrollTo(0, 0);
   }, [category, id]);
 
   return (
@@ -32,7 +32,7 @@ const Detail = () => {
             className="banner"
             style={{
               backgroundImage: `url(${apiConfig.originalImage(
-                item.backdrop_path || item.poster_path
+                item.backdrop_path
               )})`,
             }}
           ></div>
@@ -42,14 +42,14 @@ const Detail = () => {
                 className="movie-content__poster__img"
                 style={{
                   backgroundImage: `url(${apiConfig.originalImage(
-                    item.poster_path || item.backdrop_path
+                    item.backdrop_path
                   )})`,
                 }}
               ></div>
             </div>
             <div className="movie-content__info">
               <h1 className="title">
-                {item.title || item.name} {" " && item.release_date.split("-")[0]}
+                {item.title}
               </h1>
               <div className="genres">
                 {item.genres &&
@@ -73,7 +73,7 @@ const Detail = () => {
             className="container"
           >
             <div className="section mb-3">
-              <Video item={item} />
+              <Video title={item.original_title} id={item.id} />
             </div>
             <div className="section mb-3">
               <div className="section__header mb-2">

@@ -15,7 +15,7 @@ const CastList = (props) => {
   useEffect(() => {
     const getCredits = async () => {
       const res = await tmdbApi.credits(category, props.id)
-      setCasts(res.cast.slice(0, 50), res.cast.popular)
+      setCasts(res.cast.slice(0, 10), res.cast.popular)
     }
     getCredits()
   }, [category, props.id])
