@@ -49,7 +49,7 @@ const Detail = () => {
             </div>
             <div className="movie-content__info">
               <h1 className="title">
-                {item.title || item.name}{" " && item.release_date}
+                {item.title || item.name} {" " && item.release_date.split("-")[0]}
               </h1>
               <div className="genres">
                 {item.genres &&
